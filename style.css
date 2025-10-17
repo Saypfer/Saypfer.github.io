@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+body {
+  font-family: 'Parisienne', cursive;
+}
+
+/*body {
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+  background-color: #ffd6e0;
+  background: url('foto.jpg') no-repeat center center/cover;
+  font-family: 'Dancing Script', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}*/
+
+body {
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+  font-family: 'Dancing Script', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+
+  /* 💕 Fondo rosado detrás de la imagen */
+  background-color: #ffd6e0; /* ← color que se verá detrás */
+  background-image: url('foto.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+
+
+
+
+
+.contenedor {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
+  max-width: 90%;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #ff99cc;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+.botones button {
+  font-size: 1.2rem;
+  padding: 10px 25px;
+  margin: 10px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #ff69b4;
+  color: white;
+  transition: 0.3s;
+}
+
+.botones button:hover {
+  background-color: #ff85c1;
+}
+
+.oculto {
+  display: none;
+}
+
+#mensajeFinal {
+  font-size: 1.8rem;
+  color: #ffb6c1;
+  animation: aparecer 2s ease-in-out;
+}
+
+/* 🎉 Caja de celebración */
+#cajaCelebracion {
+  position: relative;
+  margin-top: 20px;
+}
+
+.caja {
+  width: 120px;
+  height: 80px;
+  background: #ff69b4;
+  border-radius: 10px 10px 0 0;
+  position: relative;
+  margin: 0 auto;
+  animation: abrirCaja 2s forwards;
+}
+
+.caja::before {
+  content: '';
+  width: 120px;
+  height: 15px;
+  background: #ffb6c1;
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  border-radius: 0 0 10px 10px;
+}
+
+/* ✨ Efecto de aparición */
+@keyframes aparecer {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* 🎁 Animación de abrir caja */
+@keyframes abrirCaja {
+  0% {transform: rotateX(0);}
+  50% {transform: rotateX(180deg);}
+  100% {transform: rotateX(180deg);}
+}
+
+/* 🎈 Globos */
+.globo {
+  position: absolute;
+  width: 60px;
+  height: 80px;
+  background: radial-gradient(circle at 30% 30%, #ff9ec6, #ff69b4);
+  border-radius: 50% 50% 45% 45%;
+  animation: subir 6s linear forwards;
+  opacity: 0.9;
+}
+
+.globo::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 28px;
+  width: 3px;
+  height: 25px;
+  background: white;
+}
+
+/* ❤️ Corazones rojos */
+.corazonRojo {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  transform: rotate(-45deg);
+  animation: subir 6s linear forwards;
+  opacity: 0.9;
+}
+.corazonRojo::before,
+.corazonRojo::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 50%;
+}
+.corazonRojo::before {
+  top: -15px;
+  left: 0;
+}
+.corazonRojo::after {
+  left: 15px;
+  top: 0;
+}
+
+/* Movimiento de globos y corazones */
+@keyframes subir {
+  0% {transform: translateY(0) scale(1);}
+  100% {transform: translateY(-800px) scale(1.3); opacity: 0;}
+}
+
+/* ❤️ Corazones flotando del fondo */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* 🔧 Ajuste del fondo */
+body {
+  background-position: center; /* puedes cambiar top/center/bottom */
+  background-size: contain; /* puedes cambiar a contain o 120% */
+}
